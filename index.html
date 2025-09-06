@@ -9,49 +9,63 @@
     <script src="js/script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
-<body>
+<body class="bg-gradient-to-br from-blue-100 via-white to-purple-100 min-h-screen">
 
     <!-- Header Section -->
-    <header>
-        <h1 class="text-3xl font-bold">My Todo List</h1>
+    <header class="py-8 bg-gradient-to-r from-blue-700 via-blue-500 to-purple-500 shadow-2xl rounded-b-3xl mb-10 flex items-center justify-center">
+        <h1 class="text-5xl font-extrabold text-white text-center tracking-widest drop-shadow-2xl px-6 py-2">
+            <span class="bg-white/10 px-4 py-2 rounded-xl shadow-lg">My Todo List</span>
+        </h1>
     </header>
 
     <!-- Main Section -->
-     <main>
+    <main class="max-w-2xl mx-auto bg-white rounded-xl shadow-xl p-6">
 
         <!-- Todo Input Section -->
-        <section id="todo-input-section" class="py-[16px]">
-            <form>
-            <input type="text" class="border-b p-2" id="todo-input" placeholder="Add a new task...">
-            <input type="date" class="border-b p-2" id="todo-date-input" placeholder="Select due date...">
-            <button type="button" id="add-todo-button" onclick="validateInput()" class="bg-blue-500 text-white px-4 py-2">Add</button>
+        <section id="todo-input-section" class="py-4">
+            <form onsubmit="validateInput(event)" class="flex flex-col md:flex-row gap-4 items-center">
+                <input type="text" class="border-b-2 border-blue-400 p-2 rounded focus:outline-none focus:border-blue-600 flex-1" id="todo-input" placeholder="Add a new task...">
+                <input type="date" class="border-b-2 border-blue-400 p-2 rounded focus:outline-none focus:border-blue-600 flex-1" id="todo-date-input" placeholder="Select due date...">
+                <button type="submit" id="add-todo-button" class="bg-blue-500 hover:bg-blue-700 transition text-white px-6 py-2 rounded-lg shadow">Add</button>
             </form>
         </section>
 
-         <section class="flex justify-between py-[16px]">
-            <button class="bg-gray-500 text-white px-4 py-2">
+        <section class="flex justify-between py-4">
+            <button class="bg-gray-500 hover:bg-gray-700 transition text-white px-4 py-2 rounded shadow" onclick="showFilterOptions()">
                 Filter Tasks
             </button>
-
-            <button class="bg-red-500 text-white px-4 py-2" onclick="deleteAllTodo()">
-                Deleter All Tasks
+            <button class="bg-red-500 hover:bg-red-700 transition text-white px-4 py-2 rounded shadow" onclick="deleteAllTodo()">
+                Delete All Tasks
             </button>
-         </section>
+        </section>
+        <div id="filter-options" class="flex gap-2 justify-center py-2"></div>
 
         <!-- Todo List Section -->
-       <section class="py-[16px]">
-        <h2 class="text-xl font-bold">List of Todo</h2>
+        <section class="py-4">
+            <h2 class="text-2xl font-bold text-center mb-4 text-blue-700">List of Todo</h2>
 
-        <ul id="todo-list" class="text-center">
-            <p>No Tasks added yet.</p>
-        </ul>
-       </section>
-     </main>
+            <table id="todo-table" class="table-auto mx-auto w-full text-center border border-gray-300 mt-4 rounded-lg overflow-hidden shadow-2xl shadow-blue-300">
+                <thead>
+                    <tr class="bg-blue-200">
+                        <th class="px-4 py-2 border">No</th>
+                        <th class="px-4 py-2 border">Task</th>
+                        <th class="px-4 py-2 border">Due Date</th>
+                        <th class="px-4 py-2 border">Status</th>
+                        <th class="px-4 py-2 border">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="border px-4 py-2 text-gray-400" colspan="5">No Tasks added yet.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
 
     <!-- Footer Section -->
-    <footer>
+    <footer class="mt-8 py-4 text-center text-gray-500">
         <p>&copy; 2025 Geni Todo List</p>
     </footer>
-
 </body>
 </html>
