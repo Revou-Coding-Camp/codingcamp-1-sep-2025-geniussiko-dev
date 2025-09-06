@@ -4,20 +4,54 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Todo List Geni</title>
-    
+
     <link rel="stylesheet" href="css/style.css">
     <script src="js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
 <body>
 
     <!-- Header Section -->
-    <header></header>
+    <header>
+        <h1 class="text-3xl font-bold">My Todo List</h1>
+    </header>
 
     <!-- Main Section -->
-     <main></main>
+     <main>
+
+        <!-- Todo Input Section -->
+        <section id="todo-input-section" class="py-[16px]">
+            <form>
+            <input type="text" class="border-b p-2" id="todo-input" placeholder="Add a new task...">
+            <input type="date" class="border-b p-2" id="todo-date-input" placeholder="Select due date...">
+            <button type="button" id="add-todo-button" onclick="validateInput()" class="bg-blue-500 text-white px-4 py-2">Add</button>
+            </form>
+        </section>
+
+         <section class="flex justify-between py-[16px]">
+            <button class="bg-gray-500 text-white px-4 py-2">
+                Filter Tasks
+            </button>
+
+            <button class="bg-red-500 text-white px-4 py-2" onclick="deleteAllTodo()">
+                Deleter All Tasks
+            </button>
+         </section>
+
+        <!-- Todo List Section -->
+       <section class="py-[16px]">
+        <h2 class="text-xl font-bold">List of Todo</h2>
+
+        <ul id="todo-list" class="text-center">
+            <p>No Tasks added yet.</p>
+        </ul>
+       </section>
+     </main>
 
     <!-- Footer Section -->
-    <footer></footer>
+    <footer>
+        <p>&copy; 2025 Geni Todo List</p>
+    </footer>
 
 </body>
 </html>
